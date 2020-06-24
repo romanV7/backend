@@ -7,7 +7,7 @@
 # Notice:
 - make sure that you use v10.16.0 node version (npm use 10). You can have installation problems with bcrypt if you node version is higher then v10.
 - `nvm use 10` (if you have installation problems) then enter installation command `npm i`
-- routes are protected. So you should be aware of this. When you login as a user (in response you will get a token). Please use it in routes to create product, order, trigger pay route as a header. Provide in headers next record `Authorization Bearer <your token>`. Photo example is provided below, please have a look!
+- routes are protected. So you should be aware of this. When you login as a user (in response you will get a token). Please use it in headers to create product, order and trigger pay route. Provide in headers next record `Authorization Bearer <your token>`. Photo example is provided below, please have a look!
 ![postman](https://user-images.githubusercontent.com/51646341/85577809-3dd9c480-b642-11ea-829b-2360cd4ac46c.jpg)
 
 
