@@ -5,7 +5,7 @@ const path = require('path')
 const Order = require("../models/order");
 const Product = require("../models/product")
 
-const { calculate } = require('../shared/calculate.js')
+const { calculate, func } = require('../shared/calculate.js')
 
 exports.orders_get_all = async (req, res, next) => {
   try {
@@ -81,9 +81,14 @@ exports.pay = async (req, res, next) => {
     for (let i = 0; i < orders.length; i++) {
       const { product, quantity } = orders[i]
       const object = calculate(dataset, product, quantity, product.price)
-      meta.push({ name: product.name, price: object })
+      meta.push(object)
     }
-    return res.status(200).json(meta)
+    const valutes = func(meta)
+    const response = {}
+    Object.keys(valutes).forEach(key => {
+     if (valutes[key] !== 0) response[key] = valutes[key]
+   })
+   return res.status(200).json(response)
   } catch (err) {
     res.status(500).json({ error: err })
   }
