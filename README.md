@@ -45,7 +45,7 @@ Route for creating a product.
 
 Parameters:
 - `name`
-- `currency` (type string. See example: currency : "USE, TRY")
+- `currency` (type string. See example: currency : "USD, TRY")
 - `price`
 
 Response:                                                                                                              
